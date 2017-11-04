@@ -46,6 +46,9 @@ Chegou a hora de vermos se vai retornar mesmo.
 Onde está escrito POST, clique e mude para GET, e altere o endereço para "http://localhost:8080/customers", 
 e aperte novamente no "Send". Veja que nos retornou todos os dados que cadastramos antes e agora com o campo 
 "id" : 1, ou seja, ele gerou automaticamente o id necessário, e o "Status 200 OK" dizendo que tudo deu certo. 
+Veja também no WorkBench que os dados estão salvos no banco de dados criado, no caso o "mobile_service_db", na tabela "client".
+
+OBS: Como estou usando o "spring.jpa.hibernate.ddl-auto=create-drop", quando reiniciar a aplicação os dados serão descartados, juntamente com as tabelas, para mante-los altere somente o trecho da linha acima "create-drop" para "update" em (src/main/resources/application.properties).
 
 Se quiser alterar algum dado cadastrado, copie os dados junto com as chaves "{}" e mude para uma requisição PUT e digite o endereço "http://localhost:8080/customer", novamente vá em "Body", "Raw" e tipo de arquivo "JSON(application/json)". Altere algo e depois de um "Send". 
 Novamente o "Status 200 OK" aparece, voltamos a requisição GET, e vemos que ele nos traz o registro já com as alterações feitas. Note que o campo "id" continua o mesmo. 
@@ -53,4 +56,6 @@ Novamente o "Status 200 OK" aparece, voltamos a requisição GET, e vemos que el
 Caso tenhamos mais de um cadastro e quisermos que ele nos traga somente um, vamos utilizar o GET pelo id. No GET é só alterarmos o endereço para "http://localhost:8080/customer/1", ou o id que queira que seja buscado, aqui usamos o "/customer/1". Novamente o "Status 200 OK" indicando que tudo correu bem. 
 
 Agora a ultima parte que é para deletarmos algum registro. Chame uma requisição DELETE e no endereço passe "http://localhost:8080/customer/1" (ou com o id que deseje apagar), e pronto, somente isso, após o "Send" o "Status 200 OK" é mostrado e quando voltamos ao GET, o registro que escolhemos apagar não consta mais na listagem. 
+
+
 
